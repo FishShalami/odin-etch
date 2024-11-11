@@ -29,7 +29,7 @@ document.querySelectorAll(".grid").forEach(function(element) {
 
 
 container.addEventListener("mouseover", (event) => {
-    event.target.style.backgroundColor = 'brown';
+    event.target.style.backgroundColor = randomColor();
     
     setTimeout(() => {
         event.target.style.backgroundColor = '';
@@ -37,5 +37,13 @@ container.addEventListener("mouseover", (event) => {
 },
 false,
 );
+
+function randomColor() {
+    let colorOne = Math.floor(Math.random()*255);
+    let colorTwo = Math.floor(Math.random()*255);
+    let colorThree = Math.floor(Math.random()*255);
+    outputColor = `rgb(${colorOne}, ${colorTwo}, ${colorThree})`;
+    return outputColor;
+}
 
 //modify grid loop to accept user input for grid size, limit grid to 100
