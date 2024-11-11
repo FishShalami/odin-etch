@@ -9,20 +9,35 @@ function createElementWithClass(type, className) {
   }
 
 //define dims of the grid
-const gridSize = 50;
+// accept user input for grid size, limit grid to 100
 
-//create a row of n = 16 containers
-for (let i = 0; i < gridSize**2; i++) {
-    container.appendChild(createElementWithClass('div','grid'))
-}
+let gridSize = null;
 
-//style the grid items (do this in the style sheet?)
+document.querySelector('button').addEventListener('click', function() {
+    var userPromptGridSize = parseInt(prompt("Please provide a grid size"));
+    gridSize = Math.min(userPromptGridSize, 100);
+    alert (`You have specified a grid of ${gridSize} square, happy drawing!`);
 
-//adjust the size of the grid items so that each row is the number of squares desired
-document.querySelectorAll(".grid").forEach(function(element) {
+
+    //clear previous grid items
+    container.innerHTML = '';
+
+    //create a row of n = 16 containers
+    for (let i = 0; i < gridSize**2; i++) {
+        container.appendChild(createElementWithClass('div','grid'))
+    }
+
+    //style the grid items (do this in the style sheet?)
+
+    //adjust the size of the grid items so that each row is the number of squares desired
+    document.querySelectorAll(".grid").forEach(function(element) {
     element.style.width = `calc(100% / ${gridSize}`;
     element.style.aspectRatio = '1 / 1'
+    });
+
 });
+
+
 
 
 
@@ -45,5 +60,3 @@ function randomColor() {
     outputColor = `rgb(${colorOne}, ${colorTwo}, ${colorThree})`;
     return outputColor;
 }
-
-//modify grid loop to accept user input for grid size, limit grid to 100
