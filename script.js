@@ -9,7 +9,7 @@ function createElementWithClass(type, className) {
   }
 
 //define dims of the grid
-const gridSize = 15;
+const gridSize = 50;
 
 //create a row of n = 16 containers
 for (let i = 0; i < gridSize**2; i++) {
@@ -18,7 +18,7 @@ for (let i = 0; i < gridSize**2; i++) {
 
 //style the grid items (do this in the style sheet?)
 
-
+//adjust the size of the grid items so that each row is the number of squares desired
 document.querySelectorAll(".grid").forEach(function(element) {
     element.style.width = `calc(100% / ${gridSize}`;
     element.style.aspectRatio = '1 / 1'
@@ -26,6 +26,16 @@ document.querySelectorAll(".grid").forEach(function(element) {
 
 
 
-//modify grid loop to accept user input for grid size, limit grid to 100
 
-//
+
+container.addEventListener("mouseover", (event) => {
+    event.target.style.backgroundColor = 'brown';
+    
+    setTimeout(() => {
+        event.target.style.backgroundColor = '';
+    }, 1500);
+},
+false,
+);
+
+//modify grid loop to accept user input for grid size, limit grid to 100
