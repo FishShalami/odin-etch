@@ -9,7 +9,7 @@ function createElementWithClass(type, className) {
   }
 
 //define dims of the grid
-const gridSize = 50;
+const gridSize = 15;
 
 //create a row of n = 16 containers
 for (let i = 0; i < gridSize**2; i++) {
@@ -17,22 +17,13 @@ for (let i = 0; i < gridSize**2; i++) {
 }
 
 //style the grid items (do this in the style sheet?)
-// function setGridItemSize(gridSize) {
-//     document.getElementsByClassName("grid").style.display = 'flex'
-//     document.getElementsByClassName("grid").style.backgroundColor = 'honeydew'
-// }
 
-// const gridItem = document.querySelectorAll('.grid')
 
 document.querySelectorAll(".grid").forEach(function(element) {
     element.style.width = `calc(100% / ${gridSize}`;
-    // element.style.height = `calc(100% / ${gridSize+1}`;
-    // element.style.height = "auto";
     element.style.aspectRatio = '1 / 1'
 });
 
-// gridItem.style.height = '10px';
-// gridItem.style.width = '10px';
 
 
 //modify grid loop to accept user input for grid size, limit grid to 100

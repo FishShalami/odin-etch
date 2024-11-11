@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     background-color: skyblue;
-    height:auto;
-    /* aspect-ratio: 1 / 1; */
+    width:95vm;
+    aspect-ratio: 1 / 1;
     border: groove black;
     justify-content: space-evenly;
     /* margin: auto;   */
@@ -19,8 +19,3 @@
     /* margin: auto; */
     justify-content: space-evenly;
 }
-
-/* .grid::before {
-    display: block;
-    padding-top: 100%;
-} */
